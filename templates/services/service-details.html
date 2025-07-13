@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}service_detail{% endblock 'title' %}
+{% block 'content' %}
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url({% static 'assets/img/page-title-bg.jpg' %});">
+      <div class="container position-relative">
+        <h1>Service Details</h1>
+        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Service Details</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="services-list">
+             {% for cat in service.category.all %}
+              <a href="#">{{cat.name}}</a>
+              {% endfor %}
+            </div>
+
+
+            <h4>{{service.stitle}}</h4>
+            <p>{{service.content}}.</p>
+          </div>
+
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+            <img src={{service.image.url}} alt="" class="img-fluid services-img">
+            <h3>{{service.ltitle}}</h3>
+            <p>
+              {{service.desc1}}.
+            </p>
+            <ul>
+              {% for sp in service.specials.all %}
+              <li><i class="bi bi-check-circle"></i> <span>{{sp.name}}.</span></li>
+              {% endfor %}
+         </ul>
+            <p>
+              {{service.desc2}}.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Service Details Section -->
+
+  </main>
+
+  {% endblock 'content' %}
