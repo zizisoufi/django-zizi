@@ -16,3 +16,7 @@ def about(request):
 
 def pricing(request):  # چون اسم pricing با مدل تداخله، بهتره اسم تابع رو عوض کنی
     return render(request, "home/pricing.html")
+
+
+def quote(request):
+    return render(request, "home/get-a-quote.html")

@@ -52,6 +52,7 @@
           <ul>
             <li><a href={% url "root:home" %} class="active">Home<br></a></li>
             <li><a href={% url "root:about" %}>About</a></li>
+            <li><a href={% url "root:quote" %}>get-a-quote</a></li>
             <li><a href={% url "services:services" %}>services</a></li>
             <li><a href={% url "root:pricing" %}>pricing</a></li>
             <li class="dropdown"><a href="#"><span>Category</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
@@ -66,9 +67,14 @@
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-  
-        <a class="btn-getstarted" href="get-a-quote.html">Login/Sign up</a>
-  
+        {% if request.user.is_authenticated %}
+        <a class="btn-getstarted" href={% url "accounts:login" %}>Logout</a>
+        <li><h1 style="color:red;">loged as {{request.user.username }}</h3></li>
+        {% else %}
+        <a class="btn-getstarted" href={% url "accounts:login" %}>Login/Sign up</a>
+        {% endif %}
+
+
       </div>
     </header>
 {% block 'content' %}

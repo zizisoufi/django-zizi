@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block 'title' %}signup{% endblock 'title' %}
+{% block 'content' %}
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url({% static 'assets/img/page-title-bg.jpg' %});">
+      <div class="container position-relative">
+        <h1>signup</h1>
+        <p>enter personal data</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">About</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">signup</button>
+    </form>
+{% if messages %}
+{% for message in messages %}
+    {{ message }}
+{% endfor %}
+{% endif %}
+{% endblock 'content' %}
