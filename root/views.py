@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import pricing,Leader
 
+
 def home(request):
     return render(request, "home/index.html")
 

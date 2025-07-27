@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'root',
     'services',
     'accounts',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+SITE_ID = 1
+
