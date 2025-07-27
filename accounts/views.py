@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import LoginForm, SignupForm
+from .forms import LoginForm, SignupForm, ChangePasswordForm
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
@@ -60,5 +60,16 @@ def logout_view(request):
 
 @login_required
 def change_password(request):
-    pass
+    if request.method == "GET" :
+        form = ChangePasswordForm()
+        context = {
+            'form' : form
+        }
+        return render(request, "accounts/change_password.html", context=context)
+    elif request.method == "POST":
+        form =ChangePasswordForm(request.POST)
+        if form.is_valid():
+            old_pass = form.cleaned_data["old_pass"]
+            password = form.cleaned_data["password"]
+            confirm = form.cleaned_data["confirm"]
     
