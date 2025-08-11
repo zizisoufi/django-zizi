@@ -3,12 +3,12 @@ from .forms import LoginForm, SignupForm, ChangePasswordForm, PasswordReset
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import password_validation, update_session_auth_hash
-from django.contrib.auth.models import User  
+from django.contrib.auth import password_validation, update_session_auth_hash  
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 from django.core.mail import send_mail
+from .models import User
 # Create your views here.
 
 
