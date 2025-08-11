@@ -14,3 +14,14 @@ class ChangePasswordForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput, max_length=15)
     confirm = forms.CharField(widget=forms.PasswordInput, max_length=15)
     
+    
+    
+class ResetPasswordForm(forms.Form):
+    password = forms.CharField(widget=forms.PasswordInput, max_length=15)
+    confirm = forms.CharField(widget=forms.PasswordInput, max_length=15)
+    
+    
+class PasswordReset(forms.Form):
+    email = forms.EmailField()
+     
+    
