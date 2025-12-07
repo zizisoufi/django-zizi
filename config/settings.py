@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'services',
     'accounts',
     'django.contrib.sitemaps',
+    'django.contrib.humanize',
+    'django_extensions',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -137,6 +140,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-SITE_ID = 1
+SITE_ID = 2
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 AUTH_USER_MODEL = "accounts.User"
